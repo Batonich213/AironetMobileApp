@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AironetAndroidApp.MainPage"
+             BackgroundColor="#f5f5f5">
+
+    <Grid>
+        <!-- ЭКРАН ВХОДА -->
+        <VerticalStackLayout x:Name="LoginLayout" 
+                             Padding="30" 
+                             Spacing="20" 
+                             VerticalOptions="Center">
+
+            <Image Source="aironet_logo.png" 
+                   HeightRequest="80" 
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,20"/>
+
+            <Label Text="Личный кабинет" 
+                   FontSize="28" 
+                   FontAttributes="Bold"
+                   TextColor="#0384ca"
+                   HorizontalOptions="Center" />
+
+            <Entry x:Name="LoginEntry" 
+                   Placeholder="Логин" 
+                   Text=""
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   HeightRequest="50" />
+
+            <Entry x:Name="PasswordEntry" 
+                   Placeholder="Пароль" 
+                   IsPassword="True" 
+                   Text=""
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   HeightRequest="50" />
+
+            <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+                <CheckBox x:Name="RememberMeCheckBox" 
+                          Color="#3dd9ff" />
+                <Label Text="Запомнить меня" 
+                       TextColor="#4d4d4d"
+                       VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Button x:Name="LoginButton" 
+                    Text="Войти" 
+                    Clicked="OnLoginButtonClicked"
+                    BackgroundColor="#3dd9ff"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    HeightRequest="50" />
+
+            <ActivityIndicator x:Name="LoadingIndicator" 
+                               IsRunning="False" 
+                               IsVisible="False"
+                               Color="#3dd9ff" />
+        </VerticalStackLayout>
+
+        <!-- ЛИЧНЫЙ КАБИНЕТ -->
+        <VerticalStackLayout x:Name="DashboardLayout" 
+                             Padding="30" 
+                             Spacing="20" 
+                             VerticalOptions="Center"
+                             IsVisible="False">
+
+            <Image Source="aironet_logo.png" 
+                   HeightRequest="60" 
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center" />
+
+            <Label x:Name="UserNameLabel" 
+                   Text="Загрузка..." 
+                   FontSize="20" 
+                   FontAttributes="Bold"
+                   TextColor="#0384ca"
+                   HorizontalOptions="Center" />
+
+            <!-- БЛОК ТАРИФА -->
+            <Border Stroke="#3dd9ff" 
+                    StrokeThickness="2"
+                    BackgroundColor="White"
+                    Padding="15"
+                    StrokeShape="RoundRectangle 15">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Ваш тариф:" 
+                           FontSize="14" 
+                           TextColor="#4d4d4d"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="TariffNameLabel" 
+                           Text="Загрузка..." 
+                           FontSize="18" 
+                           FontAttributes="Bold"
+                           TextColor="#0384ca"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="TariffPriceLabel" 
+                           Text="0.00 ₽ / мес" 
+                           FontSize="16" 
+                           TextColor="#4d4d4d"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="TariffDateLabel" 
+                           Text="Списание: ..." 
+                           FontSize="14" 
+                           TextColor="#4d4d4d"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- БЛОК БАЛАНСА -->
+            <Border Stroke="#3dd9ff" 
+                    StrokeThickness="2"
+                    BackgroundColor="White"
+                    Padding="20"
+                    StrokeShape="RoundRectangle 15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Ваш баланс:" 
+                           FontSize="16" 
+                           TextColor="#4d4d4d"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="BalanceLabel" 
+                           Text="0.00 ₽" 
+                           FontSize="48" 
+                           FontAttributes="Bold"
+                           TextColor="#0384ca"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- СТАТУС БЛОКИРОВКИ -->
+            <Border x:Name="StatusBorder"
+                    Stroke="#3dd9ff" 
+                    StrokeThickness="2"
+                    BackgroundColor="White"
+                    Padding="15"
+                    StrokeShape="RoundRectangle 15">
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Label Text="Статус:" 
+                           FontSize="16" 
+                           TextColor="#4d4d4d"
+                           VerticalOptions="Center" />
+                    <Label x:Name="BlockStatusLabel" 
+                           Text="Загрузка..." 
+                           FontSize="18" 
+                           FontAttributes="Bold"
+                           TextColor="#0384ca"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+
+            <Button x:Name="PayButton" 
+                    Text="Оплатить" 
+                    Clicked="OnPayButtonClicked"
+                    BackgroundColor="#3dd9ff"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    HeightRequest="50" />
+
+            <Button x:Name="LogoutButton" 
+                    Text="Выйти" 
+                    Clicked="OnLogoutButtonClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#0384ca"
+                    BorderColor="#0384ca"
+                    BorderWidth="2"
+                    CornerRadius="25"
+                    HeightRequest="50" />
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
